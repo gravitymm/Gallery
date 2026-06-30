@@ -9,24 +9,39 @@
     <link rel="stylesheet" href="{% static 'gallery/styles.css' %}"/>
 </head>
 <body>
-    <div class="main">
-        <div class="header">
+    <header class="header">
+        <div class="logo">LOGO</div>
+        <div class="search-bar"><input type="text" placeholder="Поиск фотографий"></div>
+        <div class="nav-button">
             <input type="file" id="file-input" multiple style="display: none">
             <button id="upload-btn">Загрузить</button>
+            <button>Тема</button>
+            <button>Настройки</button>
+            <button>Профиль</button>
         </div>
-        <div class="body">
-            <div class="menu">
+    </header>
 
-            </div>
-            <div class="gallery">
-                {% for photo in photos %}
-                    <div class="row">
-                        <img src="{{ photo.image.url }}" alt="{{ photo.image.descripton }}">
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
-    </div>
+    <main class="main-container">
+        <nav class="sidebar">
+            <ul>
+                <li>Фото</li>
+                <li>Карта</li>
+                <li>Избранное</li>
+                <li>Альбомы</li>
+                <li>Корзина</li>
+            </ul>
+        </nav>
+        <section class="gallery-content">
+            {% for photo in photos %}
+                <div class="photo-item">
+                    <img src="{{ photo.image.url }}" alt="{{ photo.file_name }}">
+                </div>
+            {% endfor %}
+        </section>
+        <aside class="timeline">
+            <div class="month-dot"></div>
+        </aside>
+    </main>
 </body>
 <script src="{% static 'gallery/index.js' %}"></script>
 </html>

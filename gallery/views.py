@@ -4,8 +4,9 @@ from gallery.models import Photo
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+@login_required
 def index(request):
-    photos = Photo.objects.all()
+    photos = Photo.objects.filter(user=request.user).ordered_by('-created_at')
     context = {'photos': photos}
     return render(request, "gallery\index.html", context)
 
