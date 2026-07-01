@@ -1,14 +1,6 @@
-{% load static %}
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="csrf-token" content="{{ csrf_token }}">
-    <title>Title</title>
-    <link rel="stylesheet" href="{% static 'gallery/styles.css' %}"/>
-</head>
-<body>
+{% extends 'gallery/base.html' %}
+{% block body_class %}gallery-page{% endblock %}
+{% block content %}
     <header class="header">
         <div class="logo">LOGO</div>
         <div class="search-bar"><input type="text" placeholder="Поиск фотографий"></div>
@@ -42,6 +34,4 @@
             <div class="month-dot"></div>
         </aside>
     </main>
-</body>
-<script src="{% static 'gallery/index.js' %}"></script>
-</html>
+{% endblock %}

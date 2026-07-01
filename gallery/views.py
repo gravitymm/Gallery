@@ -12,7 +12,7 @@ import json
 # Create your views here.
 @login_required
 def index(request):
-    photos = Photo.objects.filter(user=request.user).ordered_by('-created_at')
+    photos = Photo.objects.filter(user=request.user).order_by('-created_at')
     context = {'photos': photos}
     return render(request, "gallery/index.html", context)
 
