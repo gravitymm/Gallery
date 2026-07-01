@@ -25,6 +25,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", views.index),
     path("upload-url/", views.upload_view),
+    path("auth-url/", views.auth_view),
+    path("auth/", views.auth)
 ]
 
 if settings.DEBUG:

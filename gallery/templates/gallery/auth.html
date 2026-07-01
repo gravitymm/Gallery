@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token }}">
+    <title>Auth</title>
+    <link rel="stylesheet" href="{% static 'gallery/styles.css' %}"/>
+</head>
+<body>
+    <div class="auth-container">
+        <div id="login-box">
+            <h3>Вход</h3>
+            <input type="text" class="username-input" placeholder="Логин">
+            <input type="password" class="password-input" placeholder="Пароль">
+            <button onclick="sendAuth('login')">Войти</button>
+            <span class="toggle-label" onclick="toggleAuth()">Нет аккаунта? Зарегистрироваться</span>
+        </div>
+
+        <div id="reg-box" class="hidden">
+            <h3>Регистрация</h3>
+            <input type="text" class="username-input" placeholder="Логин">
+            <input type="password" class="password-input" placeholder="Пароль">
+            <button onclick="sendAuth('register')">Зарегистрироваться</button>
+            <span class="toggle-label" onclick="toggleAuth()">Уже есть аккаунт? Войти</span>
+        </div>
+    </div>
+</body>
+<script src="{% static 'gallery/index.js' %}"></script>
+</html>
